@@ -3,7 +3,7 @@ import dask.dataframe as dd
 from monitoring.time_it import timing
 from tools.dask_repartition import dask_repartition
 
-#function takes Dask- or Pandas-dataframe and converts categorial variables into dummy variables
+
 @timing
 def one_hot_encode_categories(df, errorcode_col, v_dask=True):
 

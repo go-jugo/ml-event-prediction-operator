@@ -10,7 +10,6 @@ from monitoring.time_it import timing
 from math import ceil
 import copy
 import random
-from tsfresh.utilities.distribution import LocalDaskDistributor
 
 
 def calculate_windo(df, window_start_date, window_end_date, element, minimal_features, window_length, errorcode_col,

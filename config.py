@@ -1,5 +1,3 @@
-from local_conf import server
-import importlib.util
 from itertools import product
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC

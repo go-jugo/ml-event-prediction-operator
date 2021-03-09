@@ -4,8 +4,6 @@ from monitoring.time_it import timing
 import dask
 import dask.dataframe as dd
 from math import floor
-#artifical_timestamp = 'global_timestamp'
-#fill_missing_values = 'ffill'
 from tools.series_list_to_df import series_list_to_df
 
 def calc_resampling(series, sampling_frequency):

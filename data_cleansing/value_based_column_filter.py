@@ -2,7 +2,6 @@
 import numpy as np
 import pandas as pd
 from monitoring.time_it import timing
-from dask.distributed import Client
 import dask.dataframe as dd
 import dask
 # filtering based on column values: function takes Dask- or Pandas-Dataframe
