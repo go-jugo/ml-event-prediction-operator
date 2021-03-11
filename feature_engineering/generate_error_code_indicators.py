@@ -2,8 +2,8 @@ import pandas as pd
 import dask.dataframe as dd
 import dask
 import numpy as np
-from monitoring.time_it import timing
-from tools.series_list_to_df import series_list_to_df
+from ..monitoring.time_it import timing
+from ..tools.series_list_to_df import series_list_to_df
 
 
 def cumsum_until_zero(series):

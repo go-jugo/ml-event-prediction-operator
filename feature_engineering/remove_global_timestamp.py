@@ -1,4 +1,4 @@
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 columns_to_remove = ['global_timestamp', 'samples_used', 'window_start', 'window_end', 'window_length']
 

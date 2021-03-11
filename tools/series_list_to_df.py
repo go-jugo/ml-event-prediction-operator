@@ -1,6 +1,6 @@
 import pandas as pd
 import dask.dataframe as dd
-from tools.dask_repartition import dask_repartition
+from .dask_repartition import dask_repartition
 from math import floor
 
 def series_list_to_df(series_collection, v_dask=True):

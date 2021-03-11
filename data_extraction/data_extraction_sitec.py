@@ -1,7 +1,7 @@
-from data_extraction import flatten_json_data, change_column_id
-from data_merge import extract_data_for_single_machine, name_based_column_filter, merge_global_and_local_timestamps, create_global_dataframe
+from . import flatten_json_data, change_column_id
+from ..data_merge import extract_data_for_single_machine, name_based_column_filter, merge_global_and_local_timestamps, create_global_dataframe
 import re
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 from os.path import splitext
 

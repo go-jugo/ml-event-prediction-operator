@@ -4,7 +4,7 @@ from flatten_json import flatten
 import json
 import re
 import sys
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 
 def flatton_json_data(filename):

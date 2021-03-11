@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import pandas as pd
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 
 # filtering based on column names

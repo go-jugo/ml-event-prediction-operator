@@ -1,5 +1,5 @@
 import pandas as pd
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 import dask
 import dask.dataframe as dd
 import re

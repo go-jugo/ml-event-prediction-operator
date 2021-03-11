@@ -6,7 +6,7 @@ import dask
 import glob
 from tsfresh import extract_features
 from tsfresh.feature_extraction import EfficientFCParameters, MinimalFCParameters
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 from math import ceil
 import copy
 import random

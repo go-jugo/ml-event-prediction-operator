@@ -13,7 +13,7 @@ from collections import Counter
 from imblearn.over_sampling import SMOTE, BorderlineSMOTE, SVMSMOTE
 from imblearn.under_sampling import RandomUnderSampler
 from imblearn.ensemble import BalancedBaggingClassifier
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 from sklearn.metrics import make_scorer, accuracy_score, precision_score, recall_score, f1_score, confusion_matrix, classification_report
 import xlsxwriter
 from mlxtend.classifier import EnsembleVoteClassifier

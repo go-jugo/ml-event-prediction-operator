@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import pandas as pd
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 import dask.dataframe as dd
 import dask
 # filtering based on column values: function takes Dask- or Pandas-Dataframe

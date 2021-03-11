@@ -2,7 +2,7 @@
 # necessary modules
 import pandas as pd
 import re
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 
 def rearrange_same_component_columns_and_create_global_artificial_timestamp_dataframe(df):

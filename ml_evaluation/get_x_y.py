@@ -1,4 +1,4 @@
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 @timing
 def get_x_y(df, target_variables_column, errorcode):

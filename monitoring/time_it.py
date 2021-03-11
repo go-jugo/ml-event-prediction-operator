@@ -11,9 +11,9 @@ import dask.dataframe as dd
 import glob
 import dask
 import hashlib
-from config import debug_mode, write_monitoring, store_results
-from config import configs_pipeline
-from tools.signature import GLOBAL_SIGNATURE
+from ..config import debug_mode, write_monitoring, store_results
+from ..config import configs_pipeline
+from ..tools.signature import GLOBAL_SIGNATURE
 
 def mem():
     process = psutil.Process(os.getpid())

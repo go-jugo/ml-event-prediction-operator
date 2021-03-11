@@ -1,5 +1,5 @@
-from data_extraction.data_extraction_cpt import data_extraction_cpt
-from data_extraction.data_extraction_sitec import data_extraction_sitec
+from .data_extraction_cpt import data_extraction_cpt
+from .data_extraction_sitec import data_extraction_sitec
 from multiprocessing import Pool
 import dask
 dataset_cpt = 'CPT'

@@ -1,5 +1,5 @@
 import pandas as pd
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 @timing
 def remove_outliers(df, number_stds=3, how = 'all'):

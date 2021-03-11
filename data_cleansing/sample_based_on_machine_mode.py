@@ -1,4 +1,4 @@
-from config import dataset
+from ..config import dataset
 import pandas as pd
 import dask.dataframe as dd
 

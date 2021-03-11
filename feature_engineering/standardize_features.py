@@ -1,6 +1,6 @@
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 @timing
 def standardize_features(df, errorcode_col, scaler = StandardScaler()):

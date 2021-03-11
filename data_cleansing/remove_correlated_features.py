@@ -1,7 +1,7 @@
 import pandas as pd
 import dask.dataframe as dd
 import numpy as np
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 
 #function takes Dask Dataframe as input and removes Features with correlation >= correlation_coefficient

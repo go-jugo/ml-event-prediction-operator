@@ -2,8 +2,8 @@ import pandas as pd
 import dask.dataframe as dd
 import dask as d 
 import numpy as np
-from monitoring.time_it import timing
-from tools.series_list_to_df import series_list_to_df
+from ..monitoring.time_it import timing
+from ..tools.series_list_to_df import series_list_to_df
 
 artifical_timestamp = 'global_timestamp'
 

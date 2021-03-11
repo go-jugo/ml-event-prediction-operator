@@ -1,5 +1,5 @@
 import pandas as pd
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 
 def extract_data_for_single_machine(df, machine_id='MAZAK-M7303290458'):

@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 
 def change_column_id(df):

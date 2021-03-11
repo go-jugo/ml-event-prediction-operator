@@ -1,6 +1,6 @@
 import glob
-from tools.pattern_mining.wrapper import run_itemset_exraction, mine_patterns
-from tools.pattern_mining.config_pattern_mining import config_pattern_mining
+from .wrapper import run_itemset_exraction, mine_patterns
+from .config_pattern_mining import config_pattern_mining
 from types import SimpleNamespace
 import pandas as pd
 

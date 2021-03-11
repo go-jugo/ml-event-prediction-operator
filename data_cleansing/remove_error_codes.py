@@ -1,6 +1,6 @@
 import pandas as pd
 import dask.dataframe as dd
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 
 @timing
 def remove_error_codes(df, dependent_variable, skip=True):

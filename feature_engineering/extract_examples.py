@@ -6,13 +6,13 @@ import dask
 import glob
 from tsfresh import extract_features
 from tsfresh.feature_extraction import EfficientFCParameters, MinimalFCParameters
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 from math import ceil
 import copy
 import random
-from feature_engineering.extract_windows_and_engineer_features_with_tsfresh import get_processed_timestamp_list
-from feature_engineering.extract_windows_and_engineer_features_with_tsfresh import get_clean_errorcode_column_to_process
-from feature_engineering.extract_windows_and_engineer_features_with_tsfresh import calculate_window
+from .extract_windows_and_engineer_features_with_tsfresh import get_processed_timestamp_list
+from .extract_windows_and_engineer_features_with_tsfresh import get_clean_errorcode_column_to_process
+from .extract_windows_and_engineer_features_with_tsfresh import calculate_window
 
 
 @timing

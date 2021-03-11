@@ -1,10 +1,10 @@
 import pandas as pd
 import os
-from monitoring.time_it import timing
+from ..monitoring.time_it import timing
 import dask
 import dask.dataframe as dd
 from math import floor
-from tools.series_list_to_df import series_list_to_df
+from ..tools.series_list_to_df import series_list_to_df
 
 def calc_resampling(series, sampling_frequency):
     return series.resample(sampling_frequency).last().shift(1)
