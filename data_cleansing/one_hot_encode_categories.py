@@ -2,6 +2,9 @@ import pandas as pd
 import dask.dataframe as dd
 from ..monitoring.time_it import timing
 from ..tools.dask_repartition import dask_repartition
+from ..logger import get_logger
+
+logger = get_logger(__name__.split(".", 1)[-1])
 
 
 @timing
