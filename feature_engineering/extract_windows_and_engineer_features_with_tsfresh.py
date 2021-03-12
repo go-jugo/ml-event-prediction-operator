@@ -10,6 +10,9 @@ from ..monitoring.time_it import timing
 from math import ceil
 import copy
 import random
+from ..logger import get_logger
+
+logger = get_logger(__name__.split(".", 1)[-1])
 
 
 def calculate_windo(df, window_start_date, window_end_date, element, minimal_features, window_length, errorcode_col,
@@ -23,7 +26,7 @@ def calculate_windo(df, window_start_date, window_end_date, element, minimal_fea
     df_window['id'] = 1
 
     if df_window.empty:
-        print('Empty')
+        logger.debug('Empty')
         if extract_negative_examples:
             return pd.DataFrame(data={'global_timestamp': [global_timestamp]})
         else:
