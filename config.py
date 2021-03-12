@@ -16,6 +16,10 @@ debug_mode = False
 write_monitoring = False
 store_results = False
 
+
+ml_algorithm_map = {
+    "RandomForestClassifier": RandomForestClassifier
+}
 def create_configs():
     base_config = dict(
         sampling_frequency=['30S'],
