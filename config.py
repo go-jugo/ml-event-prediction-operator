@@ -25,6 +25,34 @@ scaler_map = {
     "StandardScaler": StandardScaler
 }
 
+
+base_config = dict(
+    sampling_frequency=["30S"],
+    imputations_technique_str=["pad"],
+    imputation_technique_num=["pad"],
+    ts_fresh_window_length=[3600],
+    ts_fresh_window_end=[3600],
+    ts_fresh_minimal_features=[True],
+    balance_ratio=[0.5],
+    random_state=[[0]],
+    cv=[5],
+    oversampling_method=[False],
+)
+
+
+def configs_from_dict(config: dict) -> list:
+    conf = base_config.copy()
+    conf.update(config)
+    if "scaler" in conf:
+        conf["scaler"] = [scaler_map[scaler]() for scaler in conf["scaler"].copy()]
+    else:
+        conf["scaler"] = [scaler_map[default_scaler]()]
+    if "ml_algorithm" in conf:
+        conf["ml_algorithm"] = [ml_algorithm_map[ml_algorithm]() for ml_algorithm in conf["ml_algorithm"].copy()]
+    else:
+        conf["ml_algorithm"] = [ml_algorithm_map[default_ml_algorithm]()]
+    return [dict(zip(conf, v)) for v in product(*conf.values())]
+
 def create_configs():
     base_config = dict(
         sampling_frequency=['30S'],
