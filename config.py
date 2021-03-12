@@ -13,7 +13,7 @@ logging_level = os.getenv("ML_LOGGING_LEVEL", "info")
 logging_color = int(os.getenv("ML_LOGGING_COLOR", 0))
 v_dask = int(os.getenv("ML_V_DASK", 1))
 
-debug_mode = False
+debug_mode = True if logging_level == "debug" else False
 write_monitoring = False
 store_results = False
 
