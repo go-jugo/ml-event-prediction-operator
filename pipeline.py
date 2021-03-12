@@ -11,6 +11,7 @@ from .feature_engineering.remove_global_timestamp import remove_global_timestamp
 # from multiprocessing import Pool
 from .config import v_dask, logging_level, logging_color
 # from .feature_engineering.create_error_code_col import create_error_code_col
+from dask import dataframe as dd
 from .logger import init_logger, get_logger
 
 
@@ -18,6 +19,12 @@ init_logger(logging_level, logging_color)
 
 logger = get_logger(__name__.split(".", 1)[-1])
 
+
+def df_from_csv(csv_path: str, time_col: str, sorted=False):
+    df: dd.DataFrame = dd.read_csv(csv_path)
+    df[time_col] = dd.to_datetime(df[time_col])
+    df = df.set_index(time_col, sorted=sorted)
+    return df
 
 def run_pipeline(df, config, clf):
     c = SimpleNamespace(**config)
