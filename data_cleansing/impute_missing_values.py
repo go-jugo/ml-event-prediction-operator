@@ -4,6 +4,9 @@ import dask as d
 import numpy as np
 from ..monitoring.time_it import timing
 from ..tools.series_list_to_df import series_list_to_df
+from ..logger import get_logger
+
+logger = get_logger(__name__.split(".", 1)[-1])
 
 artifical_timestamp = 'global_timestamp'
 
@@ -65,8 +68,8 @@ def slice_valid_data(df, extrapolate=True,  v_dask=True):
         last_indices_clean = [index for index in last_indices if index != None]
         first_index_overall = max(first_indices_clean)
         last_index_overall = min(last_indices_clean)
-        print('First valid index: ' + str(first_index_overall))
-        print('Last valid index ' + str(last_index_overall))
+        logger.debug('First valid index: ' + str(first_index_overall))
+        logger.debug('Last valid index ' + str(last_index_overall))
         if not extrapolate:
             df_reduced = df.loc[first_index_overall:last_index_overall]
         else:
@@ -76,8 +79,8 @@ def slice_valid_data(df, extrapolate=True,  v_dask=True):
     if not v_dask:
         first_valid_loc = df.apply(lambda col: col.first_valid_index()).max()
         last_valid_loc = df.apply(lambda col: col.last_valid_index()).min()
-        print(first_valid_loc)
-        print(last_valid_loc)
+        logger.debug(first_valid_loc)
+        logger.debug(last_valid_loc)
         if not extrapolate:
             df_reduced = df.loc[first_valid_loc:last_valid_loc,:]
         else:
