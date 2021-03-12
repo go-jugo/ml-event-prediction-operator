@@ -5,6 +5,11 @@ import dask
 import dask.dataframe as dd
 from math import floor
 from ..tools.series_list_to_df import series_list_to_df
+from ..logger import get_logger
+
+
+logger = get_logger(__name__.split(".", 1)[-1])
+
 
 def calc_resampling(series, sampling_frequency):
     return series.resample(sampling_frequency).last().shift(1)
@@ -23,8 +28,8 @@ def adjust_sampling_frequency(df, sampling_frequency='30S', v_dask=True):
         df = series_list_to_df(series_collection,  v_dask)         
         len_df_after_adj = len(df)
         len_df_col_after_adj = len(df.columns)
-        print('rows: ' + str(len_df_befor_adj) + " >> " + str(len_df_after_adj))
-        print('cols: ' + str(len_df_col_before_adj) + " >> " + str(len_df_col_after_adj))
+        logger.debug('rows: ' + str(len_df_befor_adj) + " >> " + str(len_df_after_adj))
+        logger.debug('cols: ' + str(len_df_col_before_adj) + " >> " + str(len_df_col_after_adj))
     else:
         df = df.asfreq(sampling_frequency, method='ffill')
     return df
