@@ -3,6 +3,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+import json
 import os
 
 
@@ -52,6 +53,11 @@ def configs_from_dict(config: dict) -> list:
     else:
         conf["ml_algorithm"] = [ml_algorithm_map[default_ml_algorithm]()]
     return [dict(zip(conf, v)) for v in product(*conf.values())]
+
+
+def configs_from_json(config: str) -> list:
+    return configs_from_dict(json.loads(config))
+
 
 def create_configs():
     base_config = dict(
