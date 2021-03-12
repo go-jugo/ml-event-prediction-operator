@@ -8,7 +8,6 @@ from .feature_engineering.extract_windows_and_engineer_features_with_tsfresh imp
 from .data_cleansing.adjust_sampling_frequency import adjust_sampling_frequency
 from .ml_evaluation.eval import eval
 from .feature_engineering.remove_global_timestamp import remove_global_timestamp
-from .config import v_dask
 # from multiprocessing import Pool
 from .config import v_dask, logging_level, logging_color
 # from .feature_engineering.create_error_code_col import create_error_code_col
