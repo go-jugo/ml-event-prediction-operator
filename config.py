@@ -20,6 +20,11 @@ store_results = False
 ml_algorithm_map = {
     "RandomForestClassifier": RandomForestClassifier
 }
+
+scaler_map = {
+    "StandardScaler": StandardScaler
+}
+
 def create_configs():
     base_config = dict(
         sampling_frequency=['30S'],
