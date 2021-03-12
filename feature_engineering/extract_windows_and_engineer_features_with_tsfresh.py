@@ -114,10 +114,10 @@ def calculate_window(df, minimal_features):
 
     if minimal_features:
         extracted_features = extract_features(df, column_id='id', n_jobs=0,
-                                              default_fc_parameters=MinimalFCParameters())
+                                              default_fc_parameters=MinimalFCParameters(), disable_progressbar=True)
     else:
         extracted_features = extract_features(df, column_id='id', n_jobs=0,
-                                              default_fc_parameters=EfficientFCParameters())
+                                              default_fc_parameters=EfficientFCParameters(), disable_progressbar=True)
     return extracted_features
 
 @timing
