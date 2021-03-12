@@ -11,11 +11,17 @@ from .feature_engineering.remove_global_timestamp import remove_global_timestamp
 from .config import v_dask
 # from multiprocessing import Pool
 # from .feature_engineering.create_error_code_col import create_error_code_col
+from .logger import init_logger, get_logger
+
+
+init_logger(logging_level, logging_color)
+
+logger = get_logger(__name__.split(".", 1)[-1])
 
 
 def run_pipeline(df, config, clf):
     c = SimpleNamespace(**config)
-    print('Data cleansing')
+    logger.debug('Data cleansing')
     df = value_based_column_filter.value_filter(df, v_dask=v_dask)
     df = adjust_sampling_frequency(df, sampling_frequency=c.sampling_frequency, v_dask=v_dask)
     df = impute_missing_values.impute_missing_values(df, v_dask=v_dask, string_imputation_method=c.imputations_technique_str,
@@ -23,10 +29,10 @@ def run_pipeline(df, config, clf):
     df = impute_missing_values.slice_valid_data(df, v_dask=v_dask)
     df = one_hot_encode_categories.one_hot_encode_categories(df, errorcode_col=c.target_col, v_dask=v_dask)
     df = remove_error_codes.remove_error_codes(df, dependent_variable=c.target_col)
-    print('Feature engineering')
+    logger.debug('Feature engineering')
     df = extract_windows_and_features(df, window_length=c.ts_fresh_window_length, window_end=c.ts_fresh_window_end,
                                       minimal_features=c.ts_fresh_minimal_features)
-    print('ML evaluation')
+    logger.debug('ML evaluation')
     df = standardize_features.standardize_features(df, errorcode_col=c.target_col, scaler=c.scaler)
     df = remove_global_timestamp(df)
     prediction = eval(df, clf=clf)
