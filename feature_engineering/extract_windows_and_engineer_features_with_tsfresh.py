@@ -11,6 +11,7 @@ from math import ceil
 import copy
 import random
 from ..logger import get_logger
+from ..config import debug_mode
 
 logger = get_logger(__name__.split(".", 1)[-1])
 
@@ -114,10 +115,10 @@ def calculate_window(df, minimal_features):
 
     if minimal_features:
         extracted_features = extract_features(df, column_id='id', n_jobs=0,
-                                              default_fc_parameters=MinimalFCParameters(), disable_progressbar=True)
+                                              default_fc_parameters=MinimalFCParameters(), disable_progressbar=not debug_mode)
     else:
         extracted_features = extract_features(df, column_id='id', n_jobs=0,
-                                              default_fc_parameters=EfficientFCParameters(), disable_progressbar=True)
+                                              default_fc_parameters=EfficientFCParameters(), disable_progressbar=not debug_mode)
     return extracted_features
 
 @timing
