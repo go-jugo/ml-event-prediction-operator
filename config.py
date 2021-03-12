@@ -3,8 +3,15 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+import os
 
-v_dask = True
+
+default_scaler = os.getenv("ML_DEFAULT_SCALER", "StandardScaler")
+default_ml_algorithm = os.getenv("ML_DEFAULT_ALGORITHM", "RandomForestClassifier")
+logging_level = os.getenv("ML_LOGGING_LEVEL", "info")
+logging_color = int(os.getenv("ML_LOGGING_COLOR", 0))
+v_dask = os.getenv("ML_V_DASK", True)
+
 debug_mode = False
 write_monitoring = False
 store_results = False
