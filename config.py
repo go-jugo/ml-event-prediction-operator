@@ -59,6 +59,17 @@ def configs_from_json(config: str) -> list:
     return configs_from_dict(json.loads(config))
 
 
+def config_from_dict(config: dict) -> dict:
+    config = config.copy()
+    config["scaler"] = scaler_map[config["scaler"]]()
+    config["ml_algorithm"] = ml_algorithm_map[config["ml_algorithm"]]()
+    return config
+
+
+def config_from_json(config: str) -> dict:
+    return config_from_dict(json.loads(config))
+
+
 def create_configs():
     base_config = dict(
         sampling_frequency=['30S'],
